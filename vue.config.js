@@ -9,5 +9,13 @@ module.exports = {
       .set("common", resolve("./src/common"))
       .set("base", resolve("./src/base"))
       .set("api", resolve("./src/api"));
+  },
+  devServer: {
+    open: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000"
+      }
+    }
   }
 };
