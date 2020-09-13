@@ -48,9 +48,7 @@ export default {
   },
   mounted() {
     this._getRecommend();
-    setTimeout(() => {
-      this._getDiscList();
-    }, 2000);
+    this._getDiscList();
   },
   methods: {
     _getRecommend() {
