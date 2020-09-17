@@ -20,6 +20,7 @@
             class="list-group-item"
             v-for="item in group.items"
             :key="item.id"
+            @click="selectItem(item)"
           >
             <img v-lazy="item.avatar" class="avatar" />
             <span class="name">{{ item.name }}</span>
@@ -80,6 +81,9 @@ export default {
     }
   },
   methods: {
+    selectItem(item) {
+      this.$emit("select", item);
+    },
     onShortcutTouchStart(e) {
       // 当一个或多个触摸点与触控设备表面接触时触发touchstart 事件。
       let ancheorIndex = getData(e.target, "index"); // 获取当前触摸点的 index 值
